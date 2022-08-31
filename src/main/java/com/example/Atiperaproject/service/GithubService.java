@@ -22,7 +22,7 @@ public class GithubService {
             return wrongFileTypeMessage.toString();
 
         }
-        ProcessBuilder commands = new ProcessBuilder("curl", "--request",  "GET", "--url", http, "--header", acceptHeader ,"--header", "Authorization: Bearer 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");
+        ProcessBuilder commands = new ProcessBuilder("curl", "--request",  "GET", "--url", http, "--header", acceptHeader );
         Process process = commands.start();
 
         InputStream inputStream = process.getInputStream();
@@ -60,7 +60,7 @@ public class GithubService {
     public StringBuilder getBranchInfo(String name, String acceptHeader, StringBuilder response, String subline) throws IOException {
 
         String http2 = "https://api.github.com/repos/"+name+"/"+subline+"/branches";
-        ProcessBuilder commands = new ProcessBuilder("curl", "--request",  "GET", "--url", http2, "--header", acceptHeader,"--header", "Authorization: Bearer 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");
+        ProcessBuilder commands = new ProcessBuilder("curl", "--request",  "GET", "--url", http2, "--header", acceptHeader);
 
         Process process = commands.start();
 
